@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sitio web estático desplegado en Microsoft Azure con pipeline CI/CD." />
+  <title>Sitio Web Estático en Azure</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <span class="brand">☁️ Azure Static Site</span>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#acerca">Acerca</a></li>
+        <li><a href="#cicd">CI/CD</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content" id="inicio">
+      <h1>Sitio Web Estático en <span class="accent">Azure</span></h1>
+      <p class="subtitle">
+        Hospedado en la nube y desplegado automáticamente mediante un pipeline de CI/CD.
+      </p>
+      <div class="badge-row">
+        <span class="badge">HTML · CSS · JS</span>
+        <span class="badge">Azure Static Web Apps</span>
+        <span class="badge">GitHub Actions</span>
+      </div>
+      <button class="btn" id="ctaBtn">Ver el despliegue en acción</button>
+      <p class="live-clock" id="clock"></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="acerca">
+      <h2>Acerca de la práctica</h2>
+      <p>
+        Este sitio forma parte de la práctica de laboratorio de
+        <strong>Administración de Cómputo en la Nube</strong>. El objetivo es
+        configurar un entorno de almacenamiento en la nube para hospedar un sitio
+        web estático y automatizar su despliegue con integración y entrega continua.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>🌐 Hospedaje en la nube</h3>
+          <p>Servido desde Azure Static Web Apps, altamente disponible y escalable.</p>
+        </article>
+        <article class="card">
+          <h3>🔁 Despliegue automático</h3>
+          <p>Cada <code>push</code> a la rama <code>main</code> actualiza el sitio sin intervención manual.</p>
+        </article>
+        <article class="card">
+          <h3>💰 Costo optimizado</h3>
+          <p>Más rentable que una máquina virtual: se paga solo por almacenamiento y tráfico.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" id="cicd">
+      <h2>Flujo CI/CD</h2>
+      <ol class="flow">
+        <li><strong>Commit &amp; Push</strong> del código a GitHub.</li>
+        <li><strong>GitHub Actions</strong> detecta el cambio en <code>main</code>.</li>
+        <li><strong>Build</strong> de los artefactos estáticos.</li>
+        <li><strong>Deploy</strong> automático hacia Azure.</li>
+        <li><strong>URL pública</strong> actualizada al instante.</li>
+      </ol>
+    </section>
+
+    <section class="section" id="contacto">
+      <h2>Contacto</h2>
+      <p>Práctica 2 — Unidad 2 · Ingeniería Informática.</p>
+      <p>Contador de interacciones de prueba: <strong id="counter">0</strong></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> · Desplegado en Microsoft Azure.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

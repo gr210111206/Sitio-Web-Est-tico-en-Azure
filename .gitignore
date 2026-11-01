@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+package-lock.json
+
+# Artefactos de compilación
+dist/
+build/
+.cache/
+
+# Variables de entorno / secretos
+.env
+.env.local
+*.key
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores / IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
