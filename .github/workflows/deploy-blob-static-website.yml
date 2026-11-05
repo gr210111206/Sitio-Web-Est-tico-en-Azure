@@ -1,0 +1,38 @@
+name: CI/CD - Deploy to Azure Blob Static Website
+
+# Se ejecuta automáticamente en cada push a la rama principal (main)
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:   # permite ejecutarlo manualmente desde la pestaña Actions
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    name: Build y Deploy a Blob Storage
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Preparar artefactos estáticos
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -r css _site/
+          cp -r js _site/
+          echo "Archivos listos para desplegar:"
+          ls -R _site
+
+      - name: Subir el sitio al contenedor $web
+        uses: azure/cli@v2
+        with:
+          azcliversion: 2.64.0
+          inlineScript: |
+            az storage blob upload-batch \
+              --account-name "stpractica2web" \
+              --account-key "${{ secrets.AZURE_STORAGE_KEY }}" \
+              --source _site \
+              --destination '$web' \
+              --overwrite true
+            echo "Despliegue completado. Sitio actualizado en el endpoint de sitio web estático."
